@@ -18,6 +18,10 @@ namespace WatcherFolder.Forms
 
             if (Ini)
                 InitializeMain();
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
 

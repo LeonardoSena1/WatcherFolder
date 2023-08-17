@@ -7,6 +7,10 @@ namespace WatcherFolder
         public FormMan()
         {
             InitializeComponent();
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
 
