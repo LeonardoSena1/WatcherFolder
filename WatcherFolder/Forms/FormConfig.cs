@@ -27,7 +27,7 @@ namespace WatcherFolder.Forms
 
             if (Configs is null)
             {
-                EditFolderName(null, null);
+                EditFolderName(null, null);                
             }
             else
             {
@@ -66,6 +66,7 @@ namespace WatcherFolder.Forms
 
             if (customForm.DialogResult == DialogResult.OK)
             {
+                new FormMan().Show();
             }
 
             customForm.Dispose();

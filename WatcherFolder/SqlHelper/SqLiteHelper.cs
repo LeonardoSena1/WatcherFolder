@@ -25,11 +25,13 @@ namespace WatcherFolder.SqlHelper
                     using (SQLiteCommand command = new SQLiteCommand(Querys.CreateTable, connection))
                         command.ExecuteNonQuery();
                 }
+                InsertSetting(new ConfigFolder() { FolderName = string.Empty });
             }
         }
 
         public static ConfigFolder GetAllSettings()
         {
+            CreateDatabase();
             ConfigFolder Config = new ConfigFolder();
 
             using (var sqlCnn = new SQLiteConnection(ConnectionString))
@@ -51,6 +53,7 @@ namespace WatcherFolder.SqlHelper
 
         public static void InsertSetting(ConfigFolder Model)
         {
+            CreateDatabase();
             using (var sqlCnn = new SQLiteConnection(ConnectionString))
             {
                 sqlCnn.Open();

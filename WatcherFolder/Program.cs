@@ -27,7 +27,7 @@ namespace WatcherFolder
             };
 
             var contextMenu = new ContextMenuStrip();
-            contextMenu.Items.Add("Editar Nome da Pasta", null, new System.EventHandler(formConfig.EditFolderName));
+            contextMenu.Items.Add("Editar Pasta", null, new System.EventHandler(formConfig.EditFolderName));
             contextMenu.Items.Add("Sobre", null, new System.EventHandler(formConfig.OnSobre));
             contextMenu.Items.Add("Sair", null, new System.EventHandler(formConfig.OnExit));
             notifyIcon.ContextMenuStrip = contextMenu;
