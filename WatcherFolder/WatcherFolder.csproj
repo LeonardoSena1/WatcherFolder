@@ -21,9 +21,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Config\FolderName.txt">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
 		<None Update="Sources\Img\binoculars.ico">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

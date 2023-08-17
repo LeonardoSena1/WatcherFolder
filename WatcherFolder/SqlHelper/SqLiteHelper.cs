@@ -5,7 +5,7 @@ namespace WatcherFolder.SqlHelper
 {
     internal class SqLiteHelper
     {
-        public static string ConnectionString
+        private static string ConnectionString
         {
             get
             {
@@ -28,26 +28,25 @@ namespace WatcherFolder.SqlHelper
             }
         }
 
-        public static List<ConfigFolder> GetAllSettings()
+        public static ConfigFolder GetAllSettings()
         {
-            List<ConfigFolder> Imagens = new List<ConfigFolder>();
+            ConfigFolder Config = new ConfigFolder();
 
             using (var sqlCnn = new SQLiteConnection(ConnectionString))
             {
                 sqlCnn.Open();
 
-                using (var sqlCmd = new SQLiteCommand(string.Format(Querys.GetSettings, "1"), sqlCnn))
+                using (var sqlCmd = new SQLiteCommand(Querys.GetSettings, sqlCnn))
                 using (var sqlReader = sqlCmd.ExecuteReader())
                     while (sqlReader.Read())
-                        Imagens.Add(
-                            new ConfigFolder()
-                            {
-                                Id = sqlReader["Id"] != DBNull.Value ? (int)sqlReader["Id"] : -1,
-                                FolderName = sqlReader["Value"] != DBNull.Value ? (int)sqlReader["Value"] : -1
-                            });
+                    {
+                        Config.Id = sqlReader["Id"] != DBNull.Value ? (long)sqlReader["Id"] : -1;
+                        Config.FolderName = sqlReader["Value"] != DBNull.Value ? (string)sqlReader["Value"] : string.Empty;
+                        break;
+                    }
             }
 
-            return Imagens;
+            return Config;
         }
 
         public static void InsertSetting(ConfigFolder Model)

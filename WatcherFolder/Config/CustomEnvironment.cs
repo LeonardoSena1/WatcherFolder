@@ -1,13 +1,18 @@
-﻿namespace WatcherFolder.Config
+﻿using System.Collections.Generic;
+using WatcherFolder.Models;
+using WatcherFolder.SqlHelper;
+
+namespace WatcherFolder.Config
 {
     public class CustomEnvironment
     {
-        public static string FolderName
+        public static ConfigFolder AllSettings
         {
             get
             {
-                return File.ReadAllText(File.Exists(Environment.CurrentDirectory + "\\config\\FolderName.txt") 
-                    ? Environment.CurrentDirectory + "\\config\\FolderName.txt" : "CRIAR");
+                ConfigFolder Settings = SqLiteHelper.GetAllSettings();
+
+                return String.IsNullOrEmpty(Settings.FolderName) ? null : Settings;
             }
         }
     }

@@ -2,7 +2,7 @@
 {
     public class ConfigFolder
     {
-        public int Id { get; set; }
-        public int FolderName { get; set; }
+        public long Id { get; set; }
+        public string FolderName { get; set; }
     }
 }
