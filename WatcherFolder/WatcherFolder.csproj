@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.10" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
+		<PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Sources\Img\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Config\FolderName.txt">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Sources\Img\binoculars.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>
